@@ -3,6 +3,7 @@
 'use strict';
 
 // Set up an empty cart for use on this page.
+
 const cart = new Cart([]);
 console.log(Product.allProducts);
 // On screen load, we call this method to put all of the busmall options
@@ -48,12 +49,48 @@ function addSelectedItemToCart() {
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  // let sum = document.getElementById('quantity').value;
+  const counter = document.querySelector('nav');
+
+  // if (document.getElementById('count')){
+  //   document.getElementById('count')
+  // }else{
+  //   document.createElement('h2');
+  // }
+  // Apparently using this formatting is what is needed to delete the repeating element from the top when we push it.
+
+  let headerNav =  document.getElementById('count')?document.getElementById('count'):document.createElement('h2');
+  headerNav.setAttribute('id', 'count');
+ 
+  let sum =0;
+  headerNav.innerHTML = '';
+  for (let i=0; i<cart.items.length; i++){
+    sum += parseInt(cart.items[i].quantity);
+  }
+
+  headerNav.textContent = `${sum}`;
+  counter.appendChild(headerNav);
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
+  console.log(cart);
   // TODO: Add a new element to the cartContents div with that information
+  const contents = document.getElementById('cartContents');
+
+  console.log(cart);
+
+  contents.innerHTML = '';
+
+  for (let i=0; i<cart.items.length;i++){
+  let preview = document.createElement('p');
+  preview.setAttribute('id', 'peak');
+  preview.textContent = `The product is ${cart.items[i].product} and the quantity is ${cart.items[i].quantity}`;
+  contents.appendChild(preview);
+  }
+  
 }
 
 // Set up the "submit" event listener on the form.
