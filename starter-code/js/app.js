@@ -8,8 +8,8 @@ const Cart = function(items) {
 };
 
 Cart.prototype.addItem = function(product, quantity) {
-  let createCartItem = new CartItem();
-  // TODO: Fill in this instance method to create als new CartItem and add it to this.items
+  let createCartItem = new CartItem(product, quantity);
+  // TODO: Fill in this instance method to create a new CartItem and add it to this.items
   this.items.push(createCartItem);
   console.log('itemsArray', items);
 };
