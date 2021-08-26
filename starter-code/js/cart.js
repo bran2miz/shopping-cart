@@ -8,7 +8,7 @@ let cart;
 
 function loadCart() {
   const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-  cart = new Cart(cartitems);
+  cart = new Cart(cartItems);
 }
 
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
@@ -38,10 +38,13 @@ function showCart() {
     createNewData.textContent = `${Cart.allCart[i].name}`;
     cart.appendChild(createNewData);
     let newQuantity = document.createElement('td');
-    newQuantity.textContent = ``
+    newQuantity.textContent = `${Cart.allCart[i].quantity}`
+    let newItem = document.createElement('td');
+    newItem.textContent = `${Cart.allCart[i].item}`
+     // TODO: Add the TR to the TBODY and each of the TD's to the TR
   }
   
-  // TODO: Add the TR to the TBODY and each of the TD's to the TR
+ 
 
 }
 
