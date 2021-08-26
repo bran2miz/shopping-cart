@@ -60,6 +60,9 @@ function updateCounter() {
   // }
   // Apparently using this formatting is what is needed to delete the repeating element from the top when we push it.
 
+// Sheyna's ex: document.getElementById('itemCount').textContent = `: ${cart.items.length} item(s)`; ******
+
+
   let headerNav =  document.getElementById('count')?document.getElementById('count'):document.createElement('h2');
   headerNav.setAttribute('id', 'count');
  
